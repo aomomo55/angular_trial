@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "eslint": "eslint src/**/*",
-    "eslint:fix": "eslint --fix src/**/*"
+    "eslint": "eslint src/**/*.{js,ts}",
+    "eslint:fix": "eslint --fix src/**/*.{js,ts}"
   },
   "private": true,
   "dependencies": {
