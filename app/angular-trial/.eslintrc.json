@@ -5,7 +5,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
@@ -16,7 +15,8 @@
     "es6": true
   },
   "parserOptions": {
-      "ecmaVersion": 2016
+      "ecmaVersion": 2018,
+      "sourceType": "module"
   },
   "plugins": [
     "prettier",
@@ -34,6 +34,8 @@
     "no-unused-vars": 1
   },
   "globals": {
-    "$": false
+    "$": false,
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
   }
 }
