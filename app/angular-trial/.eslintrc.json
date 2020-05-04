@@ -31,7 +31,9 @@
       }
     ],
     "yoda": 0,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "no-empty-function": 0,
+    "@typescript-eslint/no-empty-function": 0
   },
   "globals": {
     "$": false,
