@@ -6,5 +6,5 @@ services:
     ports:
       - "4200:4200"
     volumes:
-      - "./app:/projects"
+      - "./:/projects/angular-trial"
     tty: true
