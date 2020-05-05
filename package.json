@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "ng serve --host 0.0.0.0",
-    "eslint": "eslint src/**/*.{js,ts}",
-    "eslint:fix": "eslint --fix src/**/*.{js,ts}"
+    "eslint": "eslint 'src/**/*.{js,ts}'",
+    "eslint:fix": "eslint --fix 'src/**/*.{js,ts}'"
   },
   "private": true,
   "dependencies": {
@@ -67,7 +67,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [
-      "docker-compose exec node yarn eslint:fix"
+      "npm run eslint:fix"
     ]
   }
 }
