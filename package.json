@@ -67,7 +67,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,ts}": [
-      "yarn eslint:fix"
+      "docker-compose exec node yarn eslint:fix"
     ]
   }
 }
