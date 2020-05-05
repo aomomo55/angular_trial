@@ -62,7 +62,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "docker-compose exec -T node yarn lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
