@@ -33,8 +33,9 @@
     "yoda": 0,
     "no-unused-vars": 1,
     "no-empty-function": 0,
+    "no-useless-constructor": "off",
     "@typescript-eslint/no-empty-function": 0,
-    "no-useless-constructor": "off"
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
   "globals": {
     "$": false,
