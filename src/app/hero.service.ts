@@ -14,7 +14,7 @@ import { MessageService } from './message.service'
 export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
-      tap((heroes) => this.log('fetched heroes')),
+      tap(() => this.log('fetched heroes')),
       catchError(this.handleError<Hero[]>('getHeroes', []))
     )
   }
@@ -34,7 +34,7 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`
     return this.http.get<Hero>(url).pipe(
-      tap((_) => this.log(`fetched hero id=${id}`)),
+      tap(() => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     )
   }
@@ -48,6 +48,7 @@ export class HeroService {
   private heroesUrl = 'api/heroes'
 
   private handleError<T>(operation = 'operation', result?: T) {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     return (error: any): Observable<T> => {
       console.error(error)
       this.log(`${operation} failed: ${error.message}`)
@@ -57,10 +58,11 @@ export class HeroService {
 
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((_) => this.log(`updated hero id=${hero.id}`)),
+      tap(() => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     )
   }
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -78,7 +80,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted hero id=${id}`)),
+      tap(() => this.log(`deleted hero id=${id}`)),
       catchError(this.handleError<Hero>('deleteHero'))
     )
   }
@@ -87,7 +89,7 @@ export class HeroService {
     if (!term.trim()) return of([])
 
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-      tap((_) => this.log(`found heroes matching "${term}"`)),
+      tap(() => this.log(`found heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     )
   }
